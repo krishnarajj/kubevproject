@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: memch
+  labels:
+    app: memch
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: memch
+  template:
+    metadata:
+      labels:
+        app: memch
+    spec:
+      containers:
+      - name: memch
+        image: memcached
+        ports:
+        - name: memchport
+          containerPort:  11211
